@@ -19,7 +19,7 @@
     --border: #e2e8f0;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-padding-top: 74px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
   body { font-family: "DM Sans", sans-serif; color: var(--text); background: #f8fafd; }
 
   nav {
@@ -75,12 +75,12 @@
   .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; letter-spacing: 0.04em; text-transform: uppercase; }
 
   .section-wrap { max-width: 960px; margin: 0 auto; padding: 5rem 2rem; }
-  section { position: relative; }
-  #services { background: #f8fafd; scroll-margin-top: 74px; }
-  #usecases { background: var(--navy); scroll-margin-top: 74px; }
-  #partenaires { background: white; scroll-margin-top: 74px; }
-  #about { background: #f8fafd; scroll-margin-top: 74px; }
-  #contact { background: white; scroll-margin-top: 74px; }
+  section { display: block; position: relative; width: 100%; }
+  #services { background: #f8fafd; scroll-margin-top: 70px; }
+  #usecases { background: var(--navy); scroll-margin-top: 70px; }
+  #partenaires { background: white; scroll-margin-top: 70px; }
+  #about { background: #f8fafd; scroll-margin-top: 70px; }
+  #contact { background: white; scroll-margin-top: 70px; }
   .section-tag { font-size: 0.78rem; font-weight: 500; color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; }
   .section-title { font-family: "DM Serif Display", serif; font-size: 2.1rem; line-height: 1.2; color: var(--navy); margin-bottom: 0.9rem; }
   .section-sub { font-size: 0.95rem; color: var(--muted); max-width: 580px; line-height: 1.75; margin-bottom: 3rem; }
@@ -112,7 +112,7 @@
   .ptag-navy { background: #e8edf5; color: #3a5a8a; }
   .ptag-amber { background: #fff8e8; color: #9a5f00; }
 
-  .usecases-bg { background: var(--navy); scroll-margin-top: 74px; }
+  .usecases-bg { background: var(--navy); scroll-margin-top: 70px; display: block; width: 100%; }
   .usecases-inner { max-width: 960px; margin: 0 auto; padding: 5rem 2rem; }
   .usecases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 3rem; }
   .uc-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.75rem; }
@@ -122,7 +122,7 @@
   .uc-card .uc-accroche { font-size: 0.82rem; color: #5de8d4; margin-bottom: 0.75rem; font-style: italic; }
   .uc-card p { font-size: 0.83rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
 
-  .partners-section { background: white; scroll-margin-top: 74px; }
+  .partners-section { background: white; scroll-margin-top: 70px; display: block; width: 100%; }
   .partners-inner { max-width: 960px; margin: 0 auto; padding: 3.5rem 2rem; }
   .partners-inner .section-tag { margin-bottom: 0.5rem; }
   .partners-inner h2 { font-family: "DM Serif Display", serif; font-size: 1.6rem; color: var(--navy); margin-bottom: 2rem; }
@@ -147,7 +147,7 @@
   .tools-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
   .tool-badge { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); font-size: 0.77rem; padding: 0.3rem 0.8rem; border-radius: 100px; }
 
-  .contact-section { background: white; scroll-margin-top: 74px; }
+  .contact-section { background: white; scroll-margin-top: 70px; display: block; width: 100%; }
   .contact-inner { max-width: 960px; margin: 0 auto; padding: 5rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
   .contact-info .section-tag { margin-bottom: 0.5rem; }
   .contact-info h2 { font-family: "DM Serif Display", serif; font-size: 2rem; color: var(--navy); margin-bottom: 1rem; }
@@ -523,11 +523,11 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 revealEls.forEach(el => observer.observe(el));
 
-const sections = document.querySelectorAll('section[id], div[id]');
+const sections = document.querySelectorAll('#services, #usecases, #partenaires, #about, #contact');
 const navLinks = document.querySelectorAll('nav ul a[href^="#"]');
 window.addEventListener('scroll', () => {
   let current = '';
-  sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 100) current = sec.id; });
+  sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 80) current = sec.id; });
   navLinks.forEach(a => { a.classList.remove('active'); if (a.getAttribute('href') === '#' + current) a.classList.add('active'); });
 }, { passive: true });
 </script>
