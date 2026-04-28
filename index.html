@@ -20,13 +20,39 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: "DM Sans", sans-serif; color: var(--text); background: #f8fafd; }
-  nav { background: var(--navy); padding: 0.85rem 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+
+  nav {
+    background: var(--navy);
+    padding: 0.85rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  nav img.logo { height: 52px; background: #ffffff; border-radius: 3px; padding: 1px 2px; }
   nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
   nav ul a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.88rem; font-weight: 400; letter-spacing: 0.02em; transition: color 0.2s; }
   nav ul a:hover { color: #fff; }
   .btn-nav { background: var(--teal); color: white !important; padding: 0.45rem 1.2rem; border-radius: 6px; font-weight: 500 !important; }
-  .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #1a3a5c 100%); color: white; padding: 6rem 2rem 5rem; position: relative; overflow: hidden; }
-  .hero::before { content: ""; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(30,111,255,0.15) 0%, transparent 70%); }
+
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #1a3a5c 100%);
+    color: white;
+    padding: 6rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 500px; height: 100%;
+    background: radial-gradient(circle at 80% 40%, rgba(30,111,255,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
   .hero-inner { max-width: 920px; margin: 0 auto; }
   .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(11,168,144,0.2); border: 1px solid rgba(11,168,144,0.4); color: #5de8d4; font-size: 0.78rem; padding: 0.3rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; letter-spacing: 0.04em; text-transform: uppercase; }
   .hero h1 { font-family: "DM Serif Display", serif; font-size: 3rem; line-height: 1.15; margin-bottom: 1.2rem; }
@@ -40,14 +66,23 @@
   .hero-clients { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
   .hero-clients span { font-size: 0.78rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.08em; }
   .client-pill { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); font-size: 0.8rem; padding: 0.3rem 0.9rem; border-radius: 100px; }
+
   .stats-bar { background: white; border-bottom: 1px solid var(--border); padding: 2rem; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; }
   .stat { text-align: center; }
   .stat-num { font-family: "DM Serif Display", serif; font-size: 2rem; color: var(--navy); }
   .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; letter-spacing: 0.04em; text-transform: uppercase; }
+
   .section-wrap { max-width: 960px; margin: 0 auto; padding: 5rem 2rem; }
+  section { position: relative; z-index: 1; }
+  #services { background: #f8fafd; }
+  #usecases { background: var(--navy); }
+  #partenaires { background: white; }
+  #about { background: #f8fafd; }
+  #contact { background: white; }
   .section-tag { font-size: 0.78rem; font-weight: 500; color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; }
   .section-title { font-family: "DM Serif Display", serif; font-size: 2.1rem; line-height: 1.2; color: var(--navy); margin-bottom: 0.9rem; }
   .section-sub { font-size: 0.95rem; color: var(--muted); max-width: 580px; line-height: 1.75; margin-bottom: 3rem; }
+
   .pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
   .pillar-card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 2rem; transition: box-shadow 0.2s, transform 0.2s; }
   .pillar-card:hover { box-shadow: 0 8px 30px rgba(13,27,42,0.1); transform: translateY(-3px); }
@@ -74,6 +109,7 @@
   .ptag-blue { background: var(--blue-pale); color: #1254b5; }
   .ptag-navy { background: #e8edf5; color: #3a5a8a; }
   .ptag-amber { background: #fff8e8; color: #9a5f00; }
+
   .usecases-bg { background: var(--navy); }
   .usecases-inner { max-width: 960px; margin: 0 auto; padding: 5rem 2rem; }
   .usecases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 3rem; }
@@ -83,8 +119,10 @@
   .uc-card h3 { font-size: 0.95rem; font-weight: 600; color: white; margin-bottom: 0.6rem; }
   .uc-card .uc-accroche { font-size: 0.82rem; color: #5de8d4; margin-bottom: 0.75rem; font-style: italic; }
   .uc-card p { font-size: 0.83rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
-  .partners-section { background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+  .partners-section { background: white; }
   .partners-inner { max-width: 960px; margin: 0 auto; padding: 3.5rem 2rem; }
+  .partners-inner .section-tag { margin-bottom: 0.5rem; }
   .partners-inner h2 { font-family: "DM Serif Display", serif; font-size: 1.6rem; color: var(--navy); margin-bottom: 2rem; }
   .partners-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
   .partner-card { background: #f8fafd; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: box-shadow 0.2s, transform 0.2s; }
@@ -93,8 +131,9 @@
   .partner-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
   .partner-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
   .partner-card ul li { font-size: 0.8rem; color: var(--muted); padding-left: 0.9rem; position: relative; }
-  .partner-card ul li::before { content: "›"; position: absolute; left: 0; color: var(--teal); }
-  .about-wrapper { background: var(--navy); border-radius: 20px; padding: 3.5rem; display: grid; grid-template-columns: 200px 1fr; gap: 3.5rem; align-items: start; }
+  .partner-card ul li::before { content: "→"; position: absolute; left: 0; color: var(--teal); }
+
+  .about-wrapper { background: var(--navy); border-radius: 20px; padding: 3.5rem; display: grid; grid-template-columns: 200px 1fr; gap: 3.5rem; align-items: start; overflow: hidden; }
   .about-avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--teal); display: flex; align-items: center; justify-content: center; font-family: "DM Serif Display", serif; font-size: 2rem; color: white; margin-bottom: 1rem; }
   .about-name { color: white; font-size: 1.1rem; font-weight: 500; }
   .about-role { color: rgba(255,255,255,0.5); font-size: 0.82rem; margin-top: 0.25rem; line-height: 1.5; }
@@ -105,15 +144,19 @@
   .about-text p { margin-bottom: 1rem; }
   .tools-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
   .tool-badge { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); font-size: 0.77rem; padding: 0.3rem 0.8rem; border-radius: 100px; }
-  .contact-section { background: white; border-top: 1px solid var(--border); }
+
+  .contact-section { background: white; }
   .contact-inner { max-width: 960px; margin: 0 auto; padding: 5rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-info .section-tag { margin-bottom: 0.5rem; }
   .contact-info h2 { font-family: "DM Serif Display", serif; font-size: 2rem; color: var(--navy); margin-bottom: 1rem; }
   .contact-info p { color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; font-size: 0.93rem; }
   .contact-item { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; font-size: 0.88rem; color: var(--text); }
   .contact-item svg { width: 17px; height: 17px; stroke: var(--teal); fill: none; stroke-width: 1.8; flex-shrink: 0; }
   .btn-send { background: var(--navy); color: white; border: none; padding: 0.75rem 2rem; border-radius: 8px; font-size: 0.9rem; font-weight: 500; cursor: pointer; font-family: "DM Sans", sans-serif; transition: background 0.2s; }
   .btn-send:hover { background: var(--navy-light); }
+
   footer { background: var(--navy); color: rgba(255,255,255,0.45); text-align: center; padding: 1.5rem; font-size: 0.78rem; }
+
   .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
   .nav-hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: all 0.3s; }
   .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 98; }
@@ -121,28 +164,37 @@
   .mobile-menu a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 1rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); transition: color 0.2s; }
   .mobile-menu a:hover { color: #5de8d4; }
   .mobile-menu.open, .mobile-overlay.open { display: flex; }
+
   @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
   .hero-badge { animation: fadeUp 0.5s ease both; }
   .hero h1 { animation: fadeUp 0.55s 0.1s ease both; }
   .hero p { animation: fadeUp 0.55s 0.2s ease both; }
   .hero-ctas { animation: fadeUp 0.55s 0.3s ease both; }
   .hero-clients { animation: fadeUp 0.55s 0.4s ease both; }
+
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
+
   nav ul a.active { color: #5de8d4 !important; }
+
   @media (max-width: 768px) {
     .nav-hamburger { display: flex; }
-    .hero h1 { font-size: 2.1rem; }
-    .pillars-grid, .usecases-grid, .partners-grid, .about-wrapper, .contact-inner { grid-template-columns: 1fr; }
-    .stats-bar { gap: 2rem; }
+    .hero { padding: 4rem 1.25rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 0.95rem; }
+    .section-wrap, .usecases-inner, .partners-inner, .contact-inner { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .pillars-grid, .usecases-grid, .partners-grid, .contact-inner { grid-template-columns: 1fr; }
+    .about-wrapper { grid-template-columns: 1fr; padding: 2rem; gap: 2rem; }
+    .stats-bar { gap: 1.5rem; padding: 1.5rem 1.25rem; }
     nav ul { display: none; }
+    .section-title { font-size: 1.7rem; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" style="text-decoration:none;color:white;font-family:'DM Serif Display',serif;font-size:1.25rem;letter-spacing:0.01em;">ESM Solutions</a>
+  <a href="#" style="text-decoration:none;"><span style="color:white;font-family:'DM Serif Display',serif;font-size:1.2rem;letter-spacing:0.03em;">ESM Solutions Numériques</span></a>
   <ul>
     <li><a href="#services">Services</a></li>
     <li><a href="#usecases">Cas d'usage</a></li>
@@ -163,6 +215,7 @@
   <a href="#contact" class="btn-primary" onclick="toggleMenu()" style="text-align:center;margin-top:0.5rem;">Contact</a>
 </div>
 
+<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-badge">Conseil · Cybersécurité · MSP · Agent IA</div>
@@ -181,6 +234,7 @@
   </div>
 </div>
 
+<!-- STATS -->
 <div class="stats-bar">
   <div class="stat"><div class="stat-num">4</div><div class="stat-label">Piliers de services</div></div>
   <div class="stat"><div class="stat-num">4</div><div class="stat-label">Partenaires experts</div></div>
@@ -188,16 +242,23 @@
   <div class="stat"><div class="stat-num">NIS2</div><div class="stat-label">Conformité accompagnée</div></div>
 </div>
 
+<!-- SERVICES -->
 <section id="services">
   <div class="section-wrap">
     <p class="section-tag">L'offre de services</p>
     <h2 class="section-title">Quatre piliers pour votre transformation</h2>
     <p class="section-sub">Une offre structurée autour de vos enjeux IT : du conseil stratégique à l'exploitation opérationnelle, avec l'IA comme accélérateur.</p>
     <div class="pillars-grid">
+
       <div class="pillar-card">
         <div class="pillar-header">
-          <div class="pillar-icon pi-teal"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-          <div class="pillar-header-text"><h3>Audit, Diagnostic &amp; Conseil</h3><div class="pillar-num">Pilier 1</div></div>
+          <div class="pillar-icon pi-teal">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <div class="pillar-header-text">
+            <h3>Audit, Diagnostic & Conseil</h3>
+            <div class="pillar-num">Pilier 1</div>
+          </div>
         </div>
         <p>Analyse de votre maturité SI, identification des écarts et définition d'une roadmap de transformation adaptée à vos enjeux.</p>
         <ul class="pillar-items">
@@ -210,13 +271,20 @@
           <span class="ptag ptag-teal">Stratégie IT</span>
           <span class="ptag ptag-teal">Cybersécurité</span>
           <span class="ptag ptag-teal">Gouvernance IT</span>
-          <span class="ptag ptag-teal">Conformité / Résilience</span>
+          <span class="ptag ptag-teal">Conformité</span>
+          <span class="ptag ptag-teal">Résilience</span>
         </div>
       </div>
+
       <div class="pillar-card">
         <div class="pillar-header">
-          <div class="pillar-icon pi-blue"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-          <div class="pillar-header-text"><h3>Pilotage de Projets</h3><div class="pillar-num">Pilier 2</div></div>
+          <div class="pillar-icon pi-blue">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="pillar-header-text">
+            <h3>Pilotage de Projets</h3>
+            <div class="pillar-num">Pilier 2</div>
+          </div>
         </div>
         <p>Gestion agile de vos projets de transformation du SI.</p>
         <ul class="pillar-items">
@@ -231,10 +299,16 @@
           <span class="ptag ptag-blue">KPIs</span>
         </div>
       </div>
+
       <div class="pillar-card">
         <div class="pillar-header">
-          <div class="pillar-icon pi-navy"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <div class="pillar-header-text"><h3>Services Managés (MSP)</h3><div class="pillar-num">Pilier 3</div></div>
+          <div class="pillar-icon pi-navy">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="pillar-header-text">
+            <h3>Services Managés (MSP)</h3>
+            <div class="pillar-num">Pilier 3</div>
+          </div>
         </div>
         <p>Un bouquet de services managés clé-en-main : cybersécurité en infrastructure souveraine et continuité d'activité.</p>
         <ul class="pillar-items">
@@ -252,10 +326,16 @@
           <span class="ptag ptag-navy">PCA/PRA</span>
         </div>
       </div>
+
       <div class="pillar-card">
         <div class="pillar-header">
-          <div class="pillar-icon pi-amber"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div class="pillar-header-text"><h3>Formation &amp; Accompagnement</h3><div class="pillar-num">Pilier 4</div></div>
+          <div class="pillar-icon pi-amber">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="pillar-header-text">
+            <h3>Formation & Accompagnement</h3>
+            <div class="pillar-num">Pilier 4</div>
+          </div>
         </div>
         <p>Des dispositifs de formation innovants pour monter en compétences sur les nouveaux usages IT, cyber et IA.</p>
         <ul class="pillar-items">
@@ -271,44 +351,52 @@
           <span class="ptag ptag-amber">Change Mgmt</span>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- USE CASES -->
 <div class="usecases-bg" id="usecases">
   <div class="usecases-inner">
     <p class="section-tag" style="color:#5de8d4;">Cas d'utilisation</p>
     <h2 class="section-title" style="color:white;">Des réponses concrètes à vos enjeux</h2>
-    <p class="section-sub" style="color:rgba(255,255,255,0.6);margin-bottom:0;">Quatre cas d'usage prioritaires pour illustrer la valeur de l'offre ESM dans votre organisation.</p>
+    <p class="section-sub" style="color:rgba(255,255,255,0.6); margin-bottom: 0;">Quatre cas d'usage prioritaires pour illustrer la valeur de l'offre ESM dans votre organisation.</p>
     <div class="usecases-grid">
+
       <div class="uc-card">
         <div class="uc-num">01</div>
         <h3>Centre de services assisté par IA</h3>
         <div class="uc-accroche">Un support 24/7 toujours plus réactif</div>
         <p>Agent IA connecté au contexte d'entreprise, surveillance proactive via RMM, pilotage intelligent des mises à jour, rapports de conformité et KPIs automatisés.</p>
       </div>
+
       <div class="uc-card">
         <div class="uc-num">02</div>
         <h3>Trajectoire Conformité NIS2</h3>
         <div class="uc-accroche">La réglementation NIS2 n'est plus une option</div>
         <p>Mesure des écarts de conformité, plan de remédiation, réponse technique à l'analyse EBIOS RM, solution Bitdefender GravityZone souveraine. Sanctions pouvant atteindre 10 M€.</p>
       </div>
+
       <div class="uc-card">
         <div class="uc-num">03</div>
         <h3>Pilotage de projets de transformation SI</h3>
         <div class="uc-accroche">L'agilité comme réponse à la complexité</div>
         <p>Méthodes agiles adaptées aux projets SI, IA comme accélérateur de gestion documentaire et de suivi, reporting de pilotage en temps réel pour la direction.</p>
       </div>
+
       <div class="uc-card">
         <div class="uc-num">04</div>
         <h3>Formation et accompagnement hybride</h3>
         <div class="uc-accroche">Les bons outils pour renforcer la montée en compétences</div>
         <p>Dispositifs de formation distanciel engageants sur les thèmes Cyber, IA et nouveaux usages. Renforcement de la motivation et de l'autonomie des participants.</p>
       </div>
+
     </div>
   </div>
 </div>
 
+<!-- PARTENAIRES -->
 <div class="partners-section" id="partenaires">
   <div class="partners-inner">
     <p class="section-tag">Écosystème de confiance</p>
@@ -326,7 +414,7 @@
       <div class="partner-card">
         <div class="partner-name"><div class="partner-dot"></div>Septeo IT</div>
         <ul>
-          <li>Backup File &amp; O365</li>
+          <li>Backup File & O365</li>
           <li>Sécurité Serveurs et Supervision RMM</li>
         </ul>
       </div>
@@ -352,13 +440,14 @@
   </div>
 </div>
 
+<!-- ABOUT -->
 <section id="about">
   <div class="section-wrap">
     <div class="about-wrapper">
       <div class="about-left">
         <div class="about-avatar">DR</div>
         <div class="about-name">Denis Rondeau</div>
-        <div class="about-role">Consultant ESM Freelance<br>Expert ITSM &amp; Transformation SI</div>
+        <div class="about-role">Consultant ESM Freelance<br>Expert ITSM & Transformation SI</div>
         <div class="cert-list">
           <span class="cert-badge">ITIL v4 Foundation</span>
           <span class="cert-badge">Project Management Professional (PMP)</span>
@@ -374,7 +463,6 @@
           <span class="tool-badge">Bitdefender GravityZone</span>
           <span class="tool-badge">Brain IA</span>
           <span class="tool-badge">Microsoft 365</span>
-          <span class="tool-badge">EBIOS RM</span>
           <span class="tool-badge">Jira Service Mgmt</span>
         </div>
       </div>
@@ -382,6 +470,7 @@
   </div>
 </section>
 
+<!-- CONTACT -->
 <div class="contact-section" id="contact">
   <div class="contact-inner">
     <div class="contact-info">
@@ -402,11 +491,11 @@
       </div>
       <div class="contact-item">
         <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        France – Remote &amp; déplacements
+        France – Remote & déplacements
       </div>
     </div>
-    <div style="display:flex;align-items:center;justify-content:center;">
-      <a href="https://calendar.app.google/nSxhSo8xRehVTfnk6" target="_blank" rel="noopener" class="btn-send" style="display:inline-flex;align-items:center;gap:0.6rem;text-decoration:none;">
+    <div style="display:flex; align-items:center; justify-content:center;">
+      <a href="https://calendar.app.google/nSxhSo8xRehVTfnk6" target="_blank" rel="noopener" class="btn-send" style="display:inline-flex; align-items:center; gap:0.6rem; text-decoration:none;">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Réserver un créneau
       </a>
@@ -423,12 +512,14 @@ function toggleMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
   document.getElementById('mobileOverlay').classList.toggle('open');
 }
+
 const revealEls = document.querySelectorAll('.pillar-card, .uc-card, .partner-card, .stat');
 revealEls.forEach(el => el.classList.add('reveal'));
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.12 });
 revealEls.forEach(el => observer.observe(el));
+
 const sections = document.querySelectorAll('section[id], div[id]');
 const navLinks = document.querySelectorAll('nav ul a[href^="#"]');
 window.addEventListener('scroll', () => {
@@ -437,5 +528,6 @@ window.addEventListener('scroll', () => {
   navLinks.forEach(a => { a.classList.remove('active'); if (a.getAttribute('href') === '#' + current) a.classList.add('active'); });
 }, { passive: true });
 </script>
+
 </body>
 </html>
